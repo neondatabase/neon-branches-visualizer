@@ -58,7 +58,7 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       // @ts-ignore
       session.error = token.error;
-      return session;
+      return token;
     },
   },
   pages: {
