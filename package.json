@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "openapi-typescript https://dfv3qgd2ykmrx.cloudfront.net/api_spec/release/v2.json --output src/utils/neon/neon.d.ts"
   },
   "dependencies": {
     "next": "13.4.5",
     "next-auth": "^4.22.1",
+    "openapi-typescript": "^6.2.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "zod": "^3.21.4"
