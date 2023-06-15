@@ -1,5 +1,5 @@
 import type { Neon } from '../../sdk';
-import type { components } from '../../neon';
+import type { components } from '../../types';
 
 export type TBranch = components['schemas']['Branch'];
 type BranchesResponse = components['schemas']['BranchesResponse'];

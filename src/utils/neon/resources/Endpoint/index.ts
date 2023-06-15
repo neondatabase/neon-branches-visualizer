@@ -1,4 +1,4 @@
-import { components } from '../../neon';
+import { components } from '../../types';
 import type { Neon } from '../../sdk';
 
 type EndpointsResponse = components['schemas']['EndpointsResponse'];

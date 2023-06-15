@@ -1,5 +1,5 @@
 import type { Neon } from '../../sdk';
-import type { components } from '../../neon';
+import type { components } from '../../types';
 
 type ProjectResponse = components['schemas']['ProjectResponse'];
 type ProjectCreateRequest = components['schemas']['ProjectCreateRequest'];
