@@ -39,7 +39,7 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
           autoComplete={autoComplete}
           className={cx(
             className,
-            'block w-full rounded-md border-gray-700 bg-gray-200 text-gray-1200 shadow-sm placeholder:text-gray-1100 sm:text-sm',
+            'block w-full rounded-md border-gray-700 bg-gray-200 text-gray-1200 shadow-sm placeholder:text-gray-1100/60 sm:text-sm',
             error && 'border-red-800 focus-visible:border-red-800 ',
             'disabled:cursor-not-allowed disabled:opacity-40',
             'focus-visible:border-gray-700 focus-visible:ring-2 focus-visible:ring-green-700 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-100',
