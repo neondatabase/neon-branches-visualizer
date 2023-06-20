@@ -4,8 +4,7 @@ import { Neon } from '~/utils/neon/sdk';
 import { Container } from '~/components/shared/container';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../api/auth/[...nextauth]/route';
-
-// import { CreateProject } from '../../components/create-project';
+import { CreateProject } from './create-project';
 
 async function getProjects() {
   const session = await getServerSession(authOptions);
@@ -33,11 +32,13 @@ export default async function Projects() {
       <div className="h-auto py-16">
         {projects && (
           <>
-            <h1 className="mb-5 text-3xl font-medium text-gray-1200">
-              Projects
-            </h1>
+            <div className="mb-10 flex items-baseline justify-between">
+              <h1 className="mb-5 text-3xl font-medium text-gray-1200">
+                Projects
+              </h1>
+              <CreateProject />
+            </div>
             {projects.length === 0 ? (
-              // <CreateProject />
               "You don't have projects"
             ) : (
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
