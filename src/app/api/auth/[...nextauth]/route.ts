@@ -4,6 +4,9 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     // @ts-ignore
     async jwt({ token, account }) {
+      console.log('TOKEN', token);
+      console.log('ACCOUNT', account);
+
       if (account) {
         // Save the access token and refresh token in the JWT on the initial login
         return {
@@ -12,14 +15,14 @@ export const authOptions: NextAuthOptions = {
           expires_at: Date.now() + account.expires_at * 1000,
           refresh_token: account.refresh_token,
         };
+        ('');
       } else if (Date.now() < token.expires_at) {
         // If the access token has not expired yet, return it
+        console.log("TOKEN HASN'T EXPIRED");
         return token;
       } else {
         // If the access token has expired, try to refresh it
         try {
-          // https://accounts.google.com/.well-known/openid-configuration
-          // We need the `token_endpoint`.
           const response = await fetch(
             'https://oauth2.neon.tech/oauth2/token',
             {
@@ -35,7 +38,7 @@ export const authOptions: NextAuthOptions = {
           );
 
           const tokens: TokenSet = await response.json();
-          console.log(tokens);
+          console.log('TOKENS', tokens);
           if (!response.ok) throw tokens;
 
           return {
@@ -57,6 +60,10 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       // @ts-ignore
+
+      console.log('SESSION', session);
+      console.log('TOKEN', token);
+
       session.error = token.error;
       return token;
     },
@@ -94,6 +101,7 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.NEON_CLIENT_SECRET,
     },
   ],
+  // debug: true,
 };
 
 const handler = NextAuth(authOptions);
